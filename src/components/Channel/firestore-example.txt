@@ -1,0 +1,40 @@
+/*------------------------------------------------------------
+import {
+  collection,
+  query,
+  onSnapshot,
+  orderBy,
+  limit,
+  addDoc,
+} from "firebase/firestore";
+
+useEffect(() => {
+  const messagesQuery = query(
+    collection(db, "messages"),
+    orderBy("createdAt"),
+    limit(100)
+  );
+  const unsubscribe = onSnapshot(messagesQuery, (queryMessages) => {
+    const messageArray = [];
+    queryMessages.forEach((doc) => {
+      const msg = doc.data();
+      const msgObj = {
+        text: msg.text,
+        id: doc.id,
+        displayName: msg.displayName,
+        createdAt: msg.createdAt,
+        photoURL: msg.photoURL,
+      };
+      messageArray.push(msgObj);
+    });
+    setMessages(messageArray);
+  });
+
+  return unsubscribe;
+}, []);
+
+const handleOnSubmit = () => {
+  // ...
+  addDoc(collection(db, "messages"), newMessageObj);
+} 
+------------------------------------------------------------*/
